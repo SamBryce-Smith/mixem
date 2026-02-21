@@ -14,17 +14,17 @@ class vmfDistribution(Distribution):
     http://www.jmlr.org/papers/volume6/banerjee05a/banerjee05a.pdf
     """
 
-    def __init__(self, mu, 
+    def __init__(self, mu,
                  kappa = None,
                 ):
         mu = np.array(mu)
-        
+
         assert len(mu.shape) == 1, "Expect mu to be 1D vector!"
         if all(mu==0):
             self.dummy = True
         else:
             self.dummy = False
-            
+
         if kappa is not None:
             assert len(np.shape(kappa)) == 0,"Expect kappa to be 0D vector"
             kappa = float(kappa)
@@ -37,13 +37,13 @@ class vmfDistribution(Distribution):
     def log_density(self, data):
 #         L2 = np.sum(np.square(data),axis=1,keepdims=1)
 #         return  np.dot(data, self.mu) * L2 / L2
-        
-        logP = np.dot(data, self.mu) 
+
+        logP = np.dot(data, self.mu)
         if self.kappa is not None:
             normTerm = ( - np.log(scipy.special.iv(self.D/2. -1.,  self.kappa ))
                           + np.log(self.kappa) * (self.D/2. - 1.)
                           - np.log(2*np.pi) * self.D/2.
-                        ) 
+                        )
             logP = logP * self.kappa + normTerm
         return  logP
 
@@ -55,16 +55,16 @@ class vmfDistribution(Distribution):
 #             fct = np.exp(L2sqrt)
             fct = 1.
             wdata = data * fct
-        
+
             wwdata  = wdata * weights[:, np.newaxis]
             rvct = np.sum(wwdata, axis=0) / np.sum(weights)
             rnorm = l2norm(rvct)
             self.mu = rvct / rnorm * self.radius
-            
+
             if self.kappa is not None:
                 r = rnorm
                 self.kappa = (r * self.D - r **3 )/(1. - r **2)
-            
+
 
     def __repr__(self):
         po = np.get_printoptions()

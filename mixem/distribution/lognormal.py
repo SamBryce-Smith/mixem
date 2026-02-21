@@ -1,6 +1,5 @@
 # coding=utf-8
 import numpy as np
-import scipy.stats
 
 from mixem.distribution.distribution import Distribution
 
