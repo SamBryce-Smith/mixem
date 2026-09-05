@@ -25,8 +25,12 @@ Python < 3.12 and raising minimum dependency versions accordingly.
 - `uv` as the recommended package manager for both end-users and developers
 - `pytest>=8.0` and `ruff>=0.8` as development dependencies via
   `[dependency-groups]`
-- End-to-end test (`tests/test_em_faithful.py`) fitting a bivariate Gaussian
-  mixture to the Old Faithful dataset using `pytest.approx`
+- End-to-end tests fitting mixture models to synthetic and real data using
+  `pytest.approx`: a bivariate Gaussian mixture on the Old Faithful dataset
+  (`tests/test_em_faithful.py`) and individual distribution tests for the
+  exponential, geometric, and normal distributions
+  (`tests/test_em_exponential.py`, `tests/test_em_geometric.py`,
+  `tests/test_em_normal.py`)
 
 ### Changed
 
