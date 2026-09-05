@@ -11,7 +11,7 @@ class Distribution(object):
 
     @abc.abstractmethod
     def log_density(self, data):
-        """Compute the log-probability density :math:`\log P(x|\phi)`
+        """Compute the log-probability density :math:`\\log P(x|\\phi)`
 
         :param data: The data :math:`x` to compute a probability density for. A :math:`(N \\times D)` :class:`numpy.ndarray` where N is the number of examples and D is the dimensionality of the data
         :type data: numpy.ndarray
@@ -28,12 +28,12 @@ class Distribution(object):
         :param data: The data :math:`x` to estimate parameters for. A :math:`(N \\times D)` :class:`numpy.ndarray` where N is the number of examples and D is the dimensionality of the data
         :type data: numpy.ndarray
 
-        :param weights: The weights :math:`\gamma` for individual data points. A N-element :class:`numpy.ndarray` where N is the number of examples.
+        :param weights: The weights :math:`\\gamma` for individual data points. A N-element :class:`numpy.ndarray` where N is the number of examples.
 
-        Choose those parameters :math:`\phi` that maximize the weighted log-likelihood function:
+        Choose those parameters :math:`\\phi` that maximize the weighted log-likelihood function:
 
         .. math::
-            ll_\gamma(x|\phi) = \sum_{n=1}^N \gamma_{n} \log [P(x|\phi)]
+            ll_\\gamma(x|\\phi) = \\sum_{n=1}^N \\gamma_{n} \\log [P(x|\\phi)]
 
         Generally, this will involve differentiating the log-likelihood function for all parameters.
         You can set the derivative of the gradient to 0 and try to solve for the parameter to find

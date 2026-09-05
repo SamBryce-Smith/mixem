@@ -11,7 +11,7 @@ def logsumexp(X,axis=None,keepdims=1,log=1):
         )
 '''
     xmax = np.max(X,axis=axis,keepdims=keepdims)
-    y = np.exp(X-xmax) 
+    y = np.exp(X-xmax)
     S = y.sum(axis=axis,keepdims=keepdims)
     if log:
         S = np.log(S)  + xmax
