@@ -12,28 +12,22 @@ mixem is a pure-python implementation of the Expectation-Maximization (EM) algor
 
 ## Documentation
 
-Find the mix'EM documentation on [ReadTheDocs](https://mixem.readthedocs.org/en/latest/).
+Find the original package mix'EM documentation on [ReadTheDocs](https://mixem.readthedocs.org/en/latest/). Documentation specific to this fork will be published to a separate link at a later date
+
+Changes between releases are described in [CHANGELOG.md](CHANGELOG.md)
 
 ## Installation
 
-Using uv (recommended):
+Install this forked version of mixem directly from GitHub (latest development version):
 
 ```bash
-uv add mixem
-```
-
-Using pip:
-
-```bash
-pip install mixem
-```
-
-Install directly from GitHub (latest development version):
-
-```bash
+# recommended
 uv add git+https://github.com/SamBryce-Smith/mixem
 
 pip install git+https://github.com/SamBryce-Smith/mixem
+
+# installing a specific version based on git commit tag (e.g. v0.2.0):
+uv add git+https://github.com/SamBryce-Smith/mixem@v0.2.0
 ```
 
 ## Development
